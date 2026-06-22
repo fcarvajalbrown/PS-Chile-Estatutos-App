@@ -1,0 +1,28 @@
+# Flutter / Dart
+app/.dart_tool/
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+app/.packages
+app/build/
+app/.idea/
+app/*.iml
+**/generated_plugin_registrant.*
+.flutter-versions
+
+# Android
+app/android/.gradle/
+app/android/local.properties
+app/android/key.properties
+app/android/app/release/
+*.keystore
+*.jks
+
+# IDE / OS
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Keep the downloaded raw HTML out if large; clean text is the source of truth.
+# (commented: keep source/ committed so content is auditable)
