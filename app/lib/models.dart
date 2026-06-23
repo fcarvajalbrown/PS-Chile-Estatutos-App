@@ -88,6 +88,7 @@ class QuizQuestion {
   final int correct; // index into options
   final String articleRef; // e.g. "Art. 17" — proof of the answer
   final String explanation;
+  final int difficulty; // 1 = Básico, 2 = Intermedio, 3 = Avanzado
 
   QuizQuestion({
     required this.titulo,
@@ -96,7 +97,11 @@ class QuizQuestion {
     required this.correct,
     required this.articleRef,
     required this.explanation,
+    this.difficulty = 1,
   });
+
+  /// Stable identifier for progress tracking (e.g. missed questions).
+  String get id => '$titulo|$articleRef|$question';
 
   factory QuizQuestion.fromJson(Map<String, dynamic> json) => QuizQuestion(
         titulo: json['titulo'] as String? ?? '',
@@ -107,7 +112,19 @@ class QuizQuestion {
         correct: json['correct'] as int,
         articleRef: json['articleRef'] as String? ?? '',
         explanation: json['explanation'] as String? ?? '',
+        difficulty: json['difficulty'] as int? ?? 1,
       );
+}
+
+/// The three difficulty tiers used by the quiz.
+enum Tier {
+  basico(1, 'Básico'),
+  intermedio(2, 'Intermedio'),
+  avanzado(3, 'Avanzado');
+
+  const Tier(this.level, this.label);
+  final int level; // questions with difficulty <= level are included
+  final String label;
 }
 
 String _toTitleCase(String input) {

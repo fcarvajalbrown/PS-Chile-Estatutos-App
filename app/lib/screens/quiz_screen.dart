@@ -7,14 +7,18 @@ import '../theme.dart';
 class QuizScreen extends StatefulWidget {
   final Repository repo;
   final List<QuizQuestion> questions;
-  final String scopeKey; // "ALL" or a Título roman numeral
+  final String scopeKey; // "ALL" or a Título roman numeral (incl. tier)
   final String scopeLabel;
+  final int sessionSize; // max questions per round
+  final bool reviewMode; // "repasar los fallados": clears missed on correct
   const QuizScreen({
     super.key,
     required this.repo,
     required this.questions,
     required this.scopeKey,
     required this.scopeLabel,
+    this.sessionSize = 10,
+    this.reviewMode = false,
   });
 
   @override
@@ -25,12 +29,14 @@ class QuizScreen extends StatefulWidget {
 /// is not always in the same position. [correct] is the index into the shuffled
 /// [options].
 class _PreparedQuestion {
+  final String id;
   final String question;
   final List<String> options;
   final int correct;
   final String articleRef;
   final String explanation;
   _PreparedQuestion({
+    required this.id,
     required this.question,
     required this.options,
     required this.correct,
@@ -41,6 +47,7 @@ class _PreparedQuestion {
   factory _PreparedQuestion.from(QuizQuestion q, Random rng) {
     final order = List<int>.generate(q.options.length, (i) => i)..shuffle(rng);
     return _PreparedQuestion(
+      id: q.id,
       question: q.question,
       options: [for (final i in order) q.options[i]],
       correct: order.indexOf(q.correct),
@@ -67,7 +74,8 @@ class _QuizScreenState extends State<QuizScreen> {
 
   List<_PreparedQuestion> _prepare() {
     final shuffled = [...widget.questions]..shuffle(_rng);
-    return [for (final q in shuffled) _PreparedQuestion.from(q, _rng)];
+    final take = shuffled.take(widget.sessionSize).toList();
+    return [for (final q in take) _PreparedQuestion.from(q, _rng)];
   }
 
   _PreparedQuestion get _q => _questions[_index];
@@ -77,7 +85,12 @@ class _QuizScreenState extends State<QuizScreen> {
     if (_answered) return;
     setState(() {
       _selected = i;
-      if (i == _q.correct) _correctCount++;
+      if (i == _q.correct) {
+        _correctCount++;
+        if (widget.reviewMode) widget.repo.removeMissed(_q.id);
+      } else {
+        widget.repo.addMissed(_q.id);
+      }
     });
   }
 
