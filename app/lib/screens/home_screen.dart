@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../repository.dart';
 import '../theme.dart';
-import '../widgets/allende_portrait.dart';
 import 'reader_screen.dart';
 import 'quiz_setup_screen.dart';
+import 'acerca_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   final Repository repo;
@@ -57,20 +57,22 @@ class HomeScreen extends StatelessWidget {
 class _Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [PSColors.red, PSColors.redDark],
-        ),
-      ),
-      padding: const EdgeInsets.fromLTRB(20, 28, 20, 28),
-      child: Column(
-        children: [
-          const AllendePortrait(size: 150),
-          const SizedBox(height: 16),
+    return Stack(
+      children: [
+        Container(
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [PSColors.red, PSColors.redDark],
+            ),
+          ),
+          padding: const EdgeInsets.fromLTRB(20, 28, 20, 28),
+          child: Column(
+            children: [
+              _EmblemMedallion(),
+              const SizedBox(height: 16),
           const Text(
             'Estatutos Nacionales',
             style: TextStyle(
@@ -97,12 +99,43 @@ class _Header extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             child: const Text(
-              'Democráticos, allendistas y de izquierda',
+              'Fundado el 19 de abril de 1933',
               style: TextStyle(color: Colors.white, fontSize: 12),
             ),
           ),
-        ],
+            ],
+          ),
+        ),
+        Positioned(
+          top: 0,
+          right: 0,
+          child: SafeArea(
+            child: IconButton(
+              icon: const Icon(Icons.info_outline, color: Colors.white),
+              tooltip: 'Acerca de',
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const AcercaScreen()),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _EmblemMedallion extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 150,
+      height: 150,
+      padding: const EdgeInsets.all(20),
+      decoration: const BoxDecoration(
+        color: PSColors.paper,
+        shape: BoxShape.circle,
       ),
+      child: Image.asset('assets/img/ps_emblem.png'),
     );
   }
 }
