@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models.dart';
 import '../repository.dart';
 import '../theme.dart';
+import '../widgets/callout_box.dart';
 
 String articleId(Titulo t, Articulo a) =>
     '${t.roman.isEmpty ? "TRANS" : t.roman}#${a.number}';
@@ -130,12 +131,16 @@ class TituloScreen extends StatefulWidget {
 
 class _TituloScreenState extends State<TituloScreen> {
   Set<String> _read = {};
+  Map<String, List<Callout>> _callouts = {};
 
   @override
   void initState() {
     super.initState();
     widget.repo.readArticles().then((r) {
       if (mounted) setState(() => _read = r);
+    });
+    widget.repo.loadCallouts().then((c) {
+      if (mounted) setState(() => _callouts = c);
     });
   }
 
@@ -204,6 +209,8 @@ class _TituloScreenState extends State<TituloScreen> {
                               ),
                             ),
                           ),
+                        for (final c in (_callouts[id] ?? const <Callout>[]))
+                          CalloutBox(callout: c),
                       ],
                     ),
                   ),

@@ -23,4 +23,5 @@ flutter:
   assets:
     - assets/data/estatutos.json
     - assets/data/quiz.json
+    - assets/data/callouts.json
     - assets/img/
