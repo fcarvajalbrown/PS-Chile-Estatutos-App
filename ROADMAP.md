@@ -77,9 +77,9 @@ article text, like a book, instead of only after the last paragraph.
 - **Export / back up progress** (read articles, scores, streak) to a file the user
   can keep or restore.
 
-## 2.0 — Content completeness + freshness
+## 2.0 — Content completeness + freshness + iOS
 
-The "content is complete and current" release.
+The "content is complete and current" release, now also runnable on iOS.
 
 - Re-run `tools/parse_estatutos.ps1` against pschile.cl and reconcile any newer
   statute version (current: updated 2026-05-19).
@@ -89,10 +89,13 @@ The "content is complete and current" release.
 - Broad polish pass: animations, accessibility, and performance across the whole
   app. Landed here because 2.0 is the flagship release and this follows all feature
   work, so nothing gets polished twice.
+- iOS scaffolding is buildable and runnable: `app/ios/` integrates with the current
+  Flutter template, `flutter build ios --simulator` succeeds, and the app launches
+  on the iOS Simulator. App Store signing/distribution remains a follow-on step.
 
-## 2.0+ — iOS
+## 2.0+ — App Store distribution
 
-- Take the existing iOS scaffolding to a real, runnable and distributable build.
-  Deliberately after 2.0: the audience is overwhelmingly Android, so iPhone support
-  is a follow-on rather than a launch requirement.
+- Real Apple Developer signing/team configuration for an iOS App Store release.
+  The audience is overwhelmingly Android, so iPhone distribution is a follow-on
+  rather than a launch requirement.
 
