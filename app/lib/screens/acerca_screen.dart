@@ -1,11 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../repository.dart';
 import '../theme.dart';
 
-/// "Acerca de" — purpose, source of the content, and credits. Home of the
-/// Salvador Allende illustration, the party's founder.
+/// "Acerca de" — purpose, source of the content, credits, and a reset for the
+/// user's local progress. Also home of the Salvador Allende illustration.
 class AcercaScreen extends StatelessWidget {
-  const AcercaScreen({super.key});
+  final Repository repo;
+  const AcercaScreen({super.key, required this.repo});
+
+  Future<void> _confirmReset(BuildContext context) async {
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Reiniciar progreso'),
+        content: const Text(
+            'Se borrarán los artículos leídos y los puntajes del quiz. '
+            'Esta acción no se puede deshacer.'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: const Text('Cancelar'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            child: const Text('Reiniciar'),
+          ),
+        ],
+      ),
+    );
+    if (ok == true) {
+      await repo.resetProgress();
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Progreso reiniciado.')),
+        );
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +114,20 @@ class AcercaScreen extends StatelessWidget {
                 fontSize: 13,
               ),
               textAlign: TextAlign.center,
+            ),
+          ),
+          const SizedBox(height: 28),
+          Center(
+            child: OutlinedButton.icon(
+              onPressed: () => _confirmReset(context),
+              icon: const Icon(Icons.restart_alt),
+              label: const Text('Reiniciar progreso'),
+              style: OutlinedButton.styleFrom(
+                foregroundColor: PSColors.red,
+                side: const BorderSide(color: PSColors.red),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              ),
             ),
           ),
         ],

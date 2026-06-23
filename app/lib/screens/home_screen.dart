@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            _Header(),
+            _Header(repo: repo),
             Expanded(
               child: ListView(
                 padding: const EdgeInsets.symmetric(vertical: 16),
@@ -55,6 +55,9 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _Header extends StatelessWidget {
+  final Repository repo;
+  const _Header({required this.repo});
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -114,7 +117,7 @@ class _Header extends StatelessWidget {
               icon: const Icon(Icons.info_outline, color: Colors.white),
               tooltip: 'Acerca de',
               onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (_) => const AcercaScreen()),
+                MaterialPageRoute(builder: (_) => AcercaScreen(repo: repo)),
               ),
             ),
           ),
