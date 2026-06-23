@@ -39,6 +39,27 @@ stylized, original vector portrait of Salvador Allende (no copyrighted photo).
 - Document version on the official site: **updated 2026-05-19** (15 Títulos,
   Artículos 1–67 + Artículo final + 2 disposiciones transitorias).
 
+## Party facts (reference — do not get these wrong in UI copy)
+
+Source: https://es.wikipedia.org/wiki/Partido_Socialista_de_Chile
+
+- Official name: **Partido Socialista de Chile (PS)**.
+- Founded: **19 de abril de 1933**, Calle Serrano 150, Santiago de Chile.
+- Founding was the union of four groups (leaders incl. Eugenio Matte Hurtado,
+  Óscar Schnake, Eduardo Rodríguez Mazer, Arturo Bianchi Gundian).
+  **Salvador Allende was NOT "the founder"** — do not caption him that way. He was
+  a militant and **Presidente de Chile (1970–1973)**.
+- **There is NO official slogan/lema.** "Democráticos, allendistas y de izquierda"
+  is a website banner phrase, NOT a motto — do not present it as one.
+- Ideology: progresismo, socialdemocracia, socialismo democrático, allendismo,
+  humanismo socialista, feminismo socialista. Position: centroizquierda a izquierda.
+- Color: rojo. Youth wing: Juventud Socialista de Chile.
+- Current (as of 2026) President: Paulina Vodanovic Rojas (desde 11-06-2022);
+  Secretario General: Camilo Escalona. HQ: París 873, Santiago.
+
+When writing any user-facing copy about the party, verify against this list or
+the Wikipedia page; never invent slogans, founders, or dates.
+
 ## Layout
 
 ```
