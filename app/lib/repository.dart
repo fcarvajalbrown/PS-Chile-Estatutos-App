@@ -26,11 +26,58 @@ class Repository {
     return list;
   }
 
-  /// Questions for one Título, or all if [roman] is null.
-  Future<List<QuizQuestion>> questionsFor(String? roman) async {
+  /// Questions for one Título (or all if [roman] is null), filtered to the
+  /// given tier (questions whose difficulty <= [maxDifficulty]).
+  Future<List<QuizQuestion>> questionsFor(String? roman,
+      {int maxDifficulty = 3}) async {
     final all = await loadQuestions();
-    if (roman == null) return all;
-    return all.where((q) => q.titulo == roman).toList();
+    return all
+        .where((q) =>
+            (roman == null || q.titulo == roman) &&
+            q.difficulty <= maxDifficulty)
+        .toList();
+  }
+
+  /// How many questions exist per Título at the given tier.
+  Future<Map<String, int>> countsByTitulo(int maxDifficulty) async {
+    final all = await loadQuestions();
+    final counts = <String, int>{};
+    for (final q in all) {
+      if (q.difficulty <= maxDifficulty) {
+        counts[q.titulo] = (counts[q.titulo] ?? 0) + 1;
+      }
+    }
+    return counts;
+  }
+
+  // ---- Missed questions ("repasar los fallados") ----
+
+  static const _missedKey = 'missed_questions';
+
+  Future<Set<String>> missedIds() async {
+    final prefs = await SharedPreferences.getInstance();
+    return (prefs.getStringList(_missedKey) ?? const <String>[]).toSet();
+  }
+
+  Future<void> addMissed(String id) async {
+    final prefs = await SharedPreferences.getInstance();
+    final set = (prefs.getStringList(_missedKey) ?? <String>[]).toSet();
+    set.add(id);
+    await prefs.setStringList(_missedKey, set.toList());
+  }
+
+  Future<void> removeMissed(String id) async {
+    final prefs = await SharedPreferences.getInstance();
+    final set = (prefs.getStringList(_missedKey) ?? <String>[]).toSet();
+    set.remove(id);
+    await prefs.setStringList(_missedKey, set.toList());
+  }
+
+  /// The questions the user has previously answered wrong.
+  Future<List<QuizQuestion>> missedQuestions() async {
+    final all = await loadQuestions();
+    final ids = await missedIds();
+    return all.where((q) => ids.contains(q.id)).toList();
   }
 
   // ---- Progress: read articles ----
