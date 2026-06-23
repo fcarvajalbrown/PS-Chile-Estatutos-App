@@ -116,6 +116,45 @@ class QuizQuestion {
       );
 }
 
+/// A "For Dummies"-style aside attached to an article in the reader.
+enum CalloutType {
+  sabias('¿Sabías que?'),
+  practica('En la práctica'),
+  ojo('Ojo'),
+  recuerda('Recuerda');
+
+  const CalloutType(this.label);
+  final String label;
+
+  static CalloutType parse(String s) {
+    switch (s) {
+      case 'practica':
+        return CalloutType.practica;
+      case 'ojo':
+        return CalloutType.ojo;
+      case 'recuerda':
+        return CalloutType.recuerda;
+      case 'sabias':
+      default:
+        return CalloutType.sabias;
+    }
+  }
+}
+
+class Callout {
+  final String articleId; // "<roman>#<number>", matches reader's articleId()
+  final CalloutType type;
+  final String text;
+
+  Callout({required this.articleId, required this.type, required this.text});
+
+  factory Callout.fromJson(Map<String, dynamic> json) => Callout(
+        articleId: json['id'] as String,
+        type: CalloutType.parse(json['type'] as String? ?? 'sabias'),
+        text: json['text'] as String,
+      );
+}
+
 /// The three difficulty tiers used by the quiz.
 enum Tier {
   basico(1, 'Básico'),

@@ -16,6 +16,23 @@ class Repository {
     return _estatuto!;
   }
 
+  Map<String, List<Callout>>? _callouts;
+
+  /// Callouts grouped by article id (`roman#number`).
+  Future<Map<String, List<Callout>>> loadCallouts() async {
+    if (_callouts != null) return _callouts!;
+    final raw = await rootBundle.loadString('assets/data/callouts.json');
+    final list = (json.decode(raw) as List<dynamic>)
+        .map((e) => Callout.fromJson(e as Map<String, dynamic>))
+        .toList();
+    final map = <String, List<Callout>>{};
+    for (final c in list) {
+      map.putIfAbsent(c.articleId, () => []).add(c);
+    }
+    _callouts = map;
+    return map;
+  }
+
   Future<List<QuizQuestion>> loadQuestions() async {
     if (_questions != null) return _questions!;
     final raw = await rootBundle.loadString('assets/data/quiz.json');
@@ -78,6 +95,20 @@ class Repository {
     final all = await loadQuestions();
     final ids = await missedIds();
     return all.where((q) => ids.contains(q.id)).toList();
+  }
+
+  /// Clears all stored progress: read articles, quiz best scores, missed
+  /// questions, and gamification (streak/XP/badges).
+  Future<void> resetProgress() async {
+    final prefs = await SharedPreferences.getInstance();
+    final keys = prefs.getKeys().where((k) =>
+        k == _readKey ||
+        k == _missedKey ||
+        k.startsWith('best_') ||
+        k.startsWith('gam_')).toList();
+    for (final k in keys) {
+      await prefs.remove(k);
+    }
   }
 
   // ---- Progress: read articles ----
