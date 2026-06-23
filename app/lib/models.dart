@@ -155,6 +155,25 @@ class Callout {
       );
 }
 
+/// A "Datos clave" table attached to an article (numbers, quórums, sizes).
+class FactBox {
+  final String articleId;
+  final String title;
+  final List<(String, String)> rows; // (label, value)
+
+  const FactBox(
+      {required this.articleId, required this.title, required this.rows});
+
+  factory FactBox.fromJson(Map<String, dynamic> json) => FactBox(
+        articleId: json['id'] as String,
+        title: json['title'] as String,
+        rows: (json['rows'] as List<dynamic>).map((r) {
+          final pair = r as List<dynamic>;
+          return (pair[0] as String, pair[1] as String);
+        }).toList(),
+      );
+}
+
 /// The three difficulty tiers used by the quiz.
 enum Tier {
   basico(1, 'Básico'),

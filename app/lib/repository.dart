@@ -33,6 +33,19 @@ class Repository {
     return map;
   }
 
+  Map<String, FactBox>? _factBoxes;
+
+  /// Fact boxes keyed by article id (`roman#number`).
+  Future<Map<String, FactBox>> loadFactBoxes() async {
+    if (_factBoxes != null) return _factBoxes!;
+    final raw = await rootBundle.loadString('assets/data/factboxes.json');
+    final list = (json.decode(raw) as List<dynamic>)
+        .map((e) => FactBox.fromJson(e as Map<String, dynamic>))
+        .toList();
+    _factBoxes = {for (final f in list) f.articleId: f};
+    return _factBoxes!;
+  }
+
   Future<List<QuizQuestion>> loadQuestions() async {
     if (_questions != null) return _questions!;
     final raw = await rootBundle.loadString('assets/data/quiz.json');
