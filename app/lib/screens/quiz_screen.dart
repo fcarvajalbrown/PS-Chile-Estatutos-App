@@ -21,8 +21,38 @@ class QuizScreen extends StatefulWidget {
   State<QuizScreen> createState() => _QuizScreenState();
 }
 
+/// A question with its options shuffled for presentation, so the correct answer
+/// is not always in the same position. [correct] is the index into the shuffled
+/// [options].
+class _PreparedQuestion {
+  final String question;
+  final List<String> options;
+  final int correct;
+  final String articleRef;
+  final String explanation;
+  _PreparedQuestion({
+    required this.question,
+    required this.options,
+    required this.correct,
+    required this.articleRef,
+    required this.explanation,
+  });
+
+  factory _PreparedQuestion.from(QuizQuestion q, Random rng) {
+    final order = List<int>.generate(q.options.length, (i) => i)..shuffle(rng);
+    return _PreparedQuestion(
+      question: q.question,
+      options: [for (final i in order) q.options[i]],
+      correct: order.indexOf(q.correct),
+      articleRef: q.articleRef,
+      explanation: q.explanation,
+    );
+  }
+}
+
 class _QuizScreenState extends State<QuizScreen> {
-  late final List<QuizQuestion> _questions;
+  final Random _rng = Random();
+  late List<_PreparedQuestion> _questions;
   int _index = 0;
   int? _selected;
   int _correctCount = 0;
@@ -32,10 +62,15 @@ class _QuizScreenState extends State<QuizScreen> {
   @override
   void initState() {
     super.initState();
-    _questions = [...widget.questions]..shuffle(Random());
+    _questions = _prepare();
   }
 
-  QuizQuestion get _q => _questions[_index];
+  List<_PreparedQuestion> _prepare() {
+    final shuffled = [...widget.questions]..shuffle(_rng);
+    return [for (final q in shuffled) _PreparedQuestion.from(q, _rng)];
+  }
+
+  _PreparedQuestion get _q => _questions[_index];
   bool get _answered => _selected != null;
 
   void _select(int i) {
@@ -316,7 +351,7 @@ class _QuizScreenState extends State<QuizScreen> {
               _selected = null;
               _correctCount = 0;
               _finished = false;
-              _questions.shuffle(Random());
+              _questions = _prepare();
             }),
             child: const Text('Reintentar'),
           ),
