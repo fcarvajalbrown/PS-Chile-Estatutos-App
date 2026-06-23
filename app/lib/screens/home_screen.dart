@@ -3,6 +3,7 @@ import '../repository.dart';
 import '../theme.dart';
 import 'reader_screen.dart';
 import 'quiz_setup_screen.dart';
+import 'esquemas_screen.dart';
 import 'acerca_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -39,6 +40,17 @@ class HomeScreen extends StatelessWidget {
                     onTap: () => Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (_) => QuizSetupScreen(repo: repo),
+                      ),
+                    ),
+                  ),
+                  _ActionCard(
+                    icon: Icons.account_tree_rounded,
+                    title: 'Esquemas',
+                    subtitle:
+                        'Estructura del Partido, datos clave y procedimientos en imágenes.',
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const EsquemasScreen(),
                       ),
                     ),
                   ),
