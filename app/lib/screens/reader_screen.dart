@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../models.dart';
 import '../repository.dart';
 import '../theme.dart';
+import '../widgets/callout_box.dart';
+import '../widgets/fact_box.dart';
 
 String articleId(Titulo t, Articulo a) =>
     '${t.roman.isEmpty ? "TRANS" : t.roman}#${a.number}';
@@ -130,12 +132,20 @@ class TituloScreen extends StatefulWidget {
 
 class _TituloScreenState extends State<TituloScreen> {
   Set<String> _read = {};
+  Map<String, List<Callout>> _callouts = {};
+  Map<String, FactBox> _factBoxes = {};
 
   @override
   void initState() {
     super.initState();
     widget.repo.readArticles().then((r) {
       if (mounted) setState(() => _read = r);
+    });
+    widget.repo.loadCallouts().then((c) {
+      if (mounted) setState(() => _callouts = c);
+    });
+    widget.repo.loadFactBoxes().then((f) {
+      if (mounted) setState(() => _factBoxes = f);
     });
   }
 
@@ -183,7 +193,12 @@ class _TituloScreenState extends State<TituloScreen> {
                 onExpansionChanged: (open) {
                   if (open && !isRead) {
                     widget.repo.markRead(id);
-                    setState(() => _read = {..._read, id});
+                    widget.repo.registerActivityToday(DateTime.now());
+                    final newRead = {..._read, id};
+                    final allRead = widget.titulo.articulos.every(
+                        (x) => newRead.contains(articleId(widget.titulo, x)));
+                    if (allRead) widget.repo.unlockBadge('reader_titulo');
+                    setState(() => _read = newRead);
                   }
                 },
                 children: [
@@ -204,6 +219,10 @@ class _TituloScreenState extends State<TituloScreen> {
                               ),
                             ),
                           ),
+                        if (_factBoxes[id] != null)
+                          FactBoxWidget(box: _factBoxes[id]!),
+                        for (final c in (_callouts[id] ?? const <Callout>[]))
+                          CalloutBox(callout: c),
                       ],
                     ),
                   ),

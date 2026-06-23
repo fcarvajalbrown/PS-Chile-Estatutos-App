@@ -1,0 +1,72 @@
+[
+  {
+    "id": "IV#12",
+    "title": "Tamaño de la Dirección Comunal",
+    "rows": [
+      ["Menos de 300 afiliados", "6 integrantes"],
+      ["300 o más", "8 integrantes"],
+      ["Más de 500", "10 integrantes"]
+    ]
+  },
+  {
+    "id": "IV#16",
+    "title": "Tamaño del Comité Regional",
+    "rows": [
+      ["Hasta 5.000 afiliados", "22 miembros"],
+      ["5.001 a 10.000", "26 miembros"],
+      ["Más de 10.000", "30 miembros"]
+    ]
+  },
+  {
+    "id": "V#17",
+    "title": "Comité Central",
+    "rows": [
+      ["Total", "110 miembros"],
+      ["De las regiones", "80"],
+      ["De elección nacional", "30"],
+      ["Se reúne en Pleno", "cada 2 meses"]
+    ]
+  },
+  {
+    "id": "VI#19",
+    "title": "Mesa Ejecutiva",
+    "rows": [
+      ["Integrantes", "12"],
+      ["Formación política", "≥ 15% del presupuesto anual"]
+    ]
+  },
+  {
+    "id": "VII#20",
+    "title": "Comisión Política",
+    "rows": [
+      ["Integrantes", "26"],
+      ["Sesiona", "cada 2 semanas"]
+    ]
+  },
+  {
+    "id": "VIII#27",
+    "title": "Congreso General Ordinario",
+    "rows": [
+      ["Frecuencia", "cada 3 años"],
+      ["Convocatoria", "4 meses antes"]
+    ]
+  },
+  {
+    "id": "XV#51",
+    "title": "Tribunal Supremo",
+    "rows": [
+      ["Titulares", "9"],
+      ["Suplentes", "3"],
+      ["Militancia mínima", "10 años"]
+    ]
+  },
+  {
+    "id": "XV#55",
+    "title": "Quórum para sancionar",
+    "rows": [
+      ["Suspensión o destitución del cargo", "3/5 del Tribunal"],
+      ["Suspensión de derechos", "3/5 del Tribunal"],
+      ["Expulsión", "2/3 del Tribunal"]
+    ]
+  }
+]

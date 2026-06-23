@@ -66,6 +66,26 @@ flutter build apk --release
 
 El APK queda en `app\build\app\outputs\flutter-apk\app-release.apk`.
 
+## iOS (compilar en un Mac)
+
+El repo incluye `app/ios/` (scaffolding nativo generado con
+`tools/scaffold_ios.ps1`). Bundle ID: `cl.pschile.psEstatutos`; nombre visible
+"Estatutos PS". Los archivos específicos de máquina (`Flutter/Generated.xcconfig`,
+`Flutter/ephemeral/`, `GeneratedPluginRegistrant.*`, `Pods/`) están en
+`.gitignore` y se regeneran solos. En el Mac:
+
+```bash
+cd app
+flutter pub get
+cd ios && pod install && cd ..
+open ios/Runner.xcworkspace   # en Signing & Capabilities, elige tu Team/Apple ID
+flutter run                   # con un simulador o un iPhone conectado
+```
+
+Las dependencias del proyecto (`shared_preferences`, `flutter_svg`,
+`cupertino_icons`) ya soportan iOS; no hay código nativo propio que portar.
+Para regenerar el scaffolding desde cero: `tools\scaffold_ios.ps1`.
+
 ## Regenerar el contenido de lectura
 
 Si corriges el texto en `source/estatutos_clean.txt`:

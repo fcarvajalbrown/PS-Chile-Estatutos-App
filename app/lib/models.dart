@@ -88,6 +88,7 @@ class QuizQuestion {
   final int correct; // index into options
   final String articleRef; // e.g. "Art. 17" — proof of the answer
   final String explanation;
+  final int difficulty; // 1 = Básico, 2 = Intermedio, 3 = Avanzado
 
   QuizQuestion({
     required this.titulo,
@@ -96,7 +97,11 @@ class QuizQuestion {
     required this.correct,
     required this.articleRef,
     required this.explanation,
+    this.difficulty = 1,
   });
+
+  /// Stable identifier for progress tracking (e.g. missed questions).
+  String get id => '$titulo|$articleRef|$question';
 
   factory QuizQuestion.fromJson(Map<String, dynamic> json) => QuizQuestion(
         titulo: json['titulo'] as String? ?? '',
@@ -107,7 +112,77 @@ class QuizQuestion {
         correct: json['correct'] as int,
         articleRef: json['articleRef'] as String? ?? '',
         explanation: json['explanation'] as String? ?? '',
+        difficulty: json['difficulty'] as int? ?? 1,
       );
+}
+
+/// A "For Dummies"-style aside attached to an article in the reader.
+enum CalloutType {
+  sabias('¿Sabías que?'),
+  practica('En la práctica'),
+  ojo('Ojo'),
+  recuerda('Recuerda');
+
+  const CalloutType(this.label);
+  final String label;
+
+  static CalloutType parse(String s) {
+    switch (s) {
+      case 'practica':
+        return CalloutType.practica;
+      case 'ojo':
+        return CalloutType.ojo;
+      case 'recuerda':
+        return CalloutType.recuerda;
+      case 'sabias':
+      default:
+        return CalloutType.sabias;
+    }
+  }
+}
+
+class Callout {
+  final String articleId; // "<roman>#<number>", matches reader's articleId()
+  final CalloutType type;
+  final String text;
+
+  Callout({required this.articleId, required this.type, required this.text});
+
+  factory Callout.fromJson(Map<String, dynamic> json) => Callout(
+        articleId: json['id'] as String,
+        type: CalloutType.parse(json['type'] as String? ?? 'sabias'),
+        text: json['text'] as String,
+      );
+}
+
+/// A "Datos clave" table attached to an article (numbers, quórums, sizes).
+class FactBox {
+  final String articleId;
+  final String title;
+  final List<(String, String)> rows; // (label, value)
+
+  const FactBox(
+      {required this.articleId, required this.title, required this.rows});
+
+  factory FactBox.fromJson(Map<String, dynamic> json) => FactBox(
+        articleId: json['id'] as String,
+        title: json['title'] as String,
+        rows: (json['rows'] as List<dynamic>).map((r) {
+          final pair = r as List<dynamic>;
+          return (pair[0] as String, pair[1] as String);
+        }).toList(),
+      );
+}
+
+/// The three difficulty tiers used by the quiz.
+enum Tier {
+  basico(1, 'Básico'),
+  intermedio(2, 'Intermedio'),
+  avanzado(3, 'Avanzado');
+
+  const Tier(this.level, this.label);
+  final int level; // questions with difficulty <= level are included
+  final String label;
 }
 
 String _toTitleCase(String input) {

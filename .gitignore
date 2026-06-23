@@ -17,6 +17,9 @@ app/android/app/release/
 *.keystore
 *.jks
 
+# Scratch (device screenshots, etc.)
+.tmp/
+
 # IDE / OS
 .idea/
 *.iml

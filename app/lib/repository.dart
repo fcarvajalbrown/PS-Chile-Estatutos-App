@@ -16,6 +16,36 @@ class Repository {
     return _estatuto!;
   }
 
+  Map<String, List<Callout>>? _callouts;
+
+  /// Callouts grouped by article id (`roman#number`).
+  Future<Map<String, List<Callout>>> loadCallouts() async {
+    if (_callouts != null) return _callouts!;
+    final raw = await rootBundle.loadString('assets/data/callouts.json');
+    final list = (json.decode(raw) as List<dynamic>)
+        .map((e) => Callout.fromJson(e as Map<String, dynamic>))
+        .toList();
+    final map = <String, List<Callout>>{};
+    for (final c in list) {
+      map.putIfAbsent(c.articleId, () => []).add(c);
+    }
+    _callouts = map;
+    return map;
+  }
+
+  Map<String, FactBox>? _factBoxes;
+
+  /// Fact boxes keyed by article id (`roman#number`).
+  Future<Map<String, FactBox>> loadFactBoxes() async {
+    if (_factBoxes != null) return _factBoxes!;
+    final raw = await rootBundle.loadString('assets/data/factboxes.json');
+    final list = (json.decode(raw) as List<dynamic>)
+        .map((e) => FactBox.fromJson(e as Map<String, dynamic>))
+        .toList();
+    _factBoxes = {for (final f in list) f.articleId: f};
+    return _factBoxes!;
+  }
+
   Future<List<QuizQuestion>> loadQuestions() async {
     if (_questions != null) return _questions!;
     final raw = await rootBundle.loadString('assets/data/quiz.json');
@@ -26,11 +56,125 @@ class Repository {
     return list;
   }
 
-  /// Questions for one Título, or all if [roman] is null.
-  Future<List<QuizQuestion>> questionsFor(String? roman) async {
+  /// Questions for one Título (or all if [roman] is null), filtered to the
+  /// given tier (questions whose difficulty <= [maxDifficulty]).
+  Future<List<QuizQuestion>> questionsFor(String? roman,
+      {int maxDifficulty = 3}) async {
     final all = await loadQuestions();
-    if (roman == null) return all;
-    return all.where((q) => q.titulo == roman).toList();
+    return all
+        .where((q) =>
+            (roman == null || q.titulo == roman) &&
+            q.difficulty <= maxDifficulty)
+        .toList();
+  }
+
+  /// How many questions exist per Título at the given tier.
+  Future<Map<String, int>> countsByTitulo(int maxDifficulty) async {
+    final all = await loadQuestions();
+    final counts = <String, int>{};
+    for (final q in all) {
+      if (q.difficulty <= maxDifficulty) {
+        counts[q.titulo] = (counts[q.titulo] ?? 0) + 1;
+      }
+    }
+    return counts;
+  }
+
+  // ---- Missed questions ("repasar los fallados") ----
+
+  static const _missedKey = 'missed_questions';
+
+  Future<Set<String>> missedIds() async {
+    final prefs = await SharedPreferences.getInstance();
+    return (prefs.getStringList(_missedKey) ?? const <String>[]).toSet();
+  }
+
+  Future<void> addMissed(String id) async {
+    final prefs = await SharedPreferences.getInstance();
+    final set = (prefs.getStringList(_missedKey) ?? <String>[]).toSet();
+    set.add(id);
+    await prefs.setStringList(_missedKey, set.toList());
+  }
+
+  Future<void> removeMissed(String id) async {
+    final prefs = await SharedPreferences.getInstance();
+    final set = (prefs.getStringList(_missedKey) ?? <String>[]).toSet();
+    set.remove(id);
+    await prefs.setStringList(_missedKey, set.toList());
+  }
+
+  /// The questions the user has previously answered wrong.
+  Future<List<QuizQuestion>> missedQuestions() async {
+    final all = await loadQuestions();
+    final ids = await missedIds();
+    return all.where((q) => ids.contains(q.id)).toList();
+  }
+
+  /// Clears all stored progress: read articles, quiz best scores, missed
+  /// questions, and gamification (streak/XP/badges).
+  Future<void> resetProgress() async {
+    final prefs = await SharedPreferences.getInstance();
+    final keys = prefs.getKeys().where((k) =>
+        k == _readKey ||
+        k == _missedKey ||
+        k.startsWith('best_') ||
+        k.startsWith('gam_')).toList();
+    for (final k in keys) {
+      await prefs.remove(k);
+    }
+  }
+
+  // ---- Gamification (streak / XP / badges) ----
+
+  Future<int> getXp() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getInt('gam_xp') ?? 0;
+  }
+
+  Future<int> addXp(int n) async {
+    final prefs = await SharedPreferences.getInstance();
+    final xp = (prefs.getInt('gam_xp') ?? 0) + n;
+    await prefs.setInt('gam_xp', xp);
+    return xp;
+  }
+
+  Future<int> getStreak() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getInt('gam_streak') ?? 0;
+  }
+
+  String _dayKey(DateTime d) =>
+      '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
+
+  /// Records activity for [today] and returns the resulting daily streak:
+  /// unchanged if already counted today, +1 if yesterday was the last day,
+  /// otherwise reset to 1.
+  Future<int> registerActivityToday(DateTime today) async {
+    final prefs = await SharedPreferences.getInstance();
+    final last = prefs.getString('gam_lastday');
+    final todayKey = _dayKey(today);
+    if (last == todayKey) return prefs.getInt('gam_streak') ?? 1;
+    final yesterdayKey = _dayKey(today.subtract(const Duration(days: 1)));
+    int streak = prefs.getInt('gam_streak') ?? 0;
+    streak = (last == yesterdayKey) ? streak + 1 : 1;
+    await prefs.setInt('gam_streak', streak);
+    await prefs.setString('gam_lastday', todayKey);
+    return streak;
+  }
+
+  Future<Set<String>> badges() async {
+    final prefs = await SharedPreferences.getInstance();
+    return (prefs.getStringList('gam_badges') ?? const <String>[]).toSet();
+  }
+
+  /// Unlocks a badge; returns true if it was newly unlocked.
+  Future<bool> unlockBadge(String id) async {
+    final prefs = await SharedPreferences.getInstance();
+    final set = (prefs.getStringList('gam_badges') ?? <String>[]).toSet();
+    if (set.contains(id)) return false;
+    set.add(id);
+    await prefs.setStringList('gam_badges', set.toList());
+    return true;
   }
 
   // ---- Progress: read articles ----

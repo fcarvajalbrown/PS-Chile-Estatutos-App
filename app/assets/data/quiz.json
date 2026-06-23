@@ -2,18 +2,72 @@
   {
     "titulo": "I",
     "question": "¿Desde qué edad puede una persona pertenecer y participar en el Partido Socialista?",
-    "options": ["14 años", "16 años", "18 años", "21 años"],
+    "options": [
+      "14 años",
+      "16 años",
+      "18 años",
+      "21 años"
+    ],
     "correct": 0,
     "articleRef": "Art. 2",
-    "explanation": "El Artículo 2º establece que podrán pertenecer y participar en el Partido, desde los 14 años de edad, las personas que compartan sus fundamentos ideológicos y políticos."
+    "explanation": "El Artículo 2º establece que podrán pertenecer y participar en el Partido, desde los 14 años de edad, las personas que compartan sus fundamentos ideológicos y políticos.",
+    "difficulty": 1
   },
   {
     "titulo": "I",
     "question": "¿De qué año es la Declaración de Principios que, según el Artículo 1º, inspira al Partido?",
-    "options": ["1933", "1947", "1990", "2002"],
+    "options": [
+      "1933",
+      "1947",
+      "1990",
+      "2002"
+    ],
     "correct": 0,
     "articleRef": "Art. 1",
-    "explanation": "El Artículo 1º menciona la Declaración de Principios de 1933, junto con la Fundamentación Teórica de 1947, los principios de la Unidad Socialista de 1990 y la declaración de 2002."
+    "explanation": "El Artículo 1º menciona la Declaración de Principios de 1933, junto con la Fundamentación Teórica de 1947, los principios de la Unidad Socialista de 1990 y la declaración de 2002.",
+    "difficulty": 1
+  },
+  {
+    "titulo": "I",
+    "question": "¿De qué año es la Fundamentación Teórica del Programa mencionada en el Artículo 1º?",
+    "options": [
+      "1947",
+      "1933",
+      "1990",
+      "2002"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 1",
+    "explanation": "El Artículo 1º cita la Fundamentación Teórica del Programa de 1947 entre los fundamentos ideológicos y políticos del Partido.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "I",
+    "question": "¿Quiénes forman parte del Padrón de Afiliados?",
+    "options": [
+      "Los socialistas mayores de 18 años con derecho a sufragio",
+      "Todos los simpatizantes del Partido",
+      "Solo los miembros de la Mesa Ejecutiva",
+      "Los menores de 18 años de la Juventud Socialista"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 2",
+    "explanation": "El Artículo 2º señala que forman parte del Padrón de Afiliados los socialistas mayores de 18 años, residentes en Chile o en el exterior, que tienen derecho a sufragio.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "I",
+    "question": "¿En qué plazo máximo debe la Secretaría General resolver el rechazo de una solicitud de afiliación o adhesión?",
+    "options": [
+      "40 días hábiles",
+      "10 días hábiles",
+      "5 días hábiles",
+      "90 días hábiles"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 2",
+    "explanation": "El Artículo 2º fija un plazo que no supere los cuarenta días hábiles desde el ingreso de la solicitud; si no se pronuncia, se entiende aceptada.",
+    "difficulty": 3
   },
   {
     "titulo": "I",
@@ -26,7 +80,22 @@
     ],
     "correct": 0,
     "articleRef": "Art. 4",
-    "explanation": "El Artículo 4º letra c) señala el deber de contribuir al financiamiento del Partido manteniendo las cotizaciones al día y abonando otras aportaciones que se determinen."
+    "explanation": "El Artículo 4º letra c) señala el deber de contribuir al financiamiento del Partido manteniendo las cotizaciones al día y abonando otras aportaciones que se determinen.",
+    "difficulty": 1
+  },
+  {
+    "titulo": "I",
+    "question": "¿Qué conducta deben oponerse a fomentar los y las socialistas, según los deberes del Artículo 4º?",
+    "options": [
+      "Las conductas caudillistas o personalistas",
+      "La crítica interna",
+      "La formación de núcleos",
+      "La participación en frentes sociales"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 4",
+    "explanation": "El Artículo 4º letra j) impone oponerse a las conductas caudillistas o personalistas, estimulando el trabajo colectivo y las decisiones de conjunto.",
+    "difficulty": 3
   },
   {
     "titulo": "II",
@@ -39,89 +108,260 @@
     ],
     "correct": 0,
     "articleRef": "Art. 5",
-    "explanation": "El Artículo 5º dispone que solo podrán aplicar medidas disciplinarias el Tribunal Supremo y los Tribunales Regionales, mediante un procedimiento que garantice el debido proceso."
+    "explanation": "El Artículo 5º dispone que solo podrán aplicar medidas disciplinarias el Tribunal Supremo y los Tribunales Regionales, mediante un procedimiento que garantice el debido proceso.",
+    "difficulty": 1
   },
   {
     "titulo": "II",
-    "question": "Según los principios del Código de Ética Socialista, ¿qué le está vedado a un militante o adherente respecto de un cargo?",
+    "question": "¿Qué principios deben aplicar el Tribunal Supremo y los Tribunales Regionales en sus resoluciones?",
+    "options": [
+      "Legalidad, igualdad, no discriminación y proporcionalidad",
+      "Jerarquía, obediencia y disciplina",
+      "Eficiencia, rapidez y economía",
+      "Publicidad, debate y consenso"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 5",
+    "explanation": "El Artículo 5º ordena aplicar los principios de legalidad, igualdad, no discriminación y proporcionalidad de las sanciones.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "II",
+    "question": "¿Quién aprueba el Reglamento de Disciplina del Partido?",
+    "options": [
+      "El Comité Central, a propuesta del Tribunal Supremo",
+      "La Mesa Ejecutiva por sí sola",
+      "El Congreso General",
+      "La Comisión Política"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 6",
+    "explanation": "El Artículo 6º señala que las infracciones, medidas y procedimientos están en el Reglamento de Disciplina, aprobado por el Comité Central a propuesta del Tribunal Supremo.",
+    "difficulty": 3
+  },
+  {
+    "titulo": "II",
+    "question": "Según el Código de Ética Socialista, ¿qué le está vedado a un militante respecto de un cargo?",
     "options": [
       "Usar un cargo público o privado para su indebido aprovechamiento personal",
       "Ocupar más de un cargo a la vez",
-      "Postular a un cargo antes de los 5 años de militancia",
+      "Postular antes de los 5 años de militancia",
       "Renunciar a un cargo sin aviso"
     ],
     "correct": 0,
     "articleRef": "Art. 7",
-    "explanation": "El Artículo 7º letra a) señala que ningún militante o adherente puede usar un cargo público, o incluso privado, para abusar de él en su indebido aprovechamiento personal."
+    "explanation": "El Artículo 7º letra a) señala que ningún militante o adherente puede usar un cargo público, o incluso privado, para abusar de él en su indebido aprovechamiento personal.",
+    "difficulty": 2
   },
   {
     "titulo": "III",
     "question": "Según el Artículo 9º, ¿cómo son las cotizaciones de los y las socialistas?",
     "options": [
-      "Obligatorias y de monto proporcional a los ingresos del militante o adherente",
+      "Obligatorias y de monto proporcional a los ingresos",
       "Voluntarias y de monto fijo",
       "Obligatorias solo para los dirigentes",
       "Voluntarias salvo en campaña electoral"
     ],
     "correct": 0,
     "articleRef": "Art. 9",
-    "explanation": "El Artículo 9º establece que las cotizaciones son obligatorias para todos los y las socialistas y su monto será proporcional a los ingresos del militante o adherente."
+    "explanation": "El Artículo 9º establece que las cotizaciones son obligatorias para todos los y las socialistas y su monto será proporcional a los ingresos del militante o adherente.",
+    "difficulty": 1
   },
   {
     "titulo": "III",
     "question": "¿Quién designa al Administrador General de Fondos del Partido?",
-    "options": ["La Mesa Ejecutiva", "El Congreso General", "El Tribunal Supremo", "La Comisión Política"],
+    "options": [
+      "La Mesa Ejecutiva",
+      "El Congreso General",
+      "El Tribunal Supremo",
+      "La Comisión Política"
+    ],
     "correct": 0,
     "articleRef": "Art. 8",
-    "explanation": "El Artículo 8º dispone que la Mesa Ejecutiva designará un Administrador General de Fondos, con domicilio en Chile, como colaborador directo de la Mesa."
+    "explanation": "El Artículo 8º dispone que la Mesa Ejecutiva designará un Administrador General de Fondos, con domicilio en Chile, como colaborador directo de la Mesa.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "III",
+    "question": "¿Qué requisito de formación debe cumplir el Administrador General de Fondos?",
+    "options": [
+      "Un título técnico o profesional de una carrera de al menos ocho semestres",
+      "Ser abogado titulado",
+      "Tener diez años de militancia",
+      "Ser miembro del Comité Central"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 8",
+    "explanation": "El Artículo 8º exige que el Administrador cuente con un título técnico o profesional de una carrera de, al menos, ocho semestres de duración.",
+    "difficulty": 3
+  },
+  {
+    "titulo": "III",
+    "question": "¿A qué están sujetos los recursos financieros del Partido, según el Artículo 8º?",
+    "options": [
+      "A auditorías anuales por una entidad especializada e independiente",
+      "A revisión exclusiva de la Comisión Política",
+      "A control del Congreso cada tres años",
+      "A fiscalización del Tribunal Supremo"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 8",
+    "explanation": "El Artículo 8º establece que la recaudación y administración estarán sujetas a auditorías anuales por una entidad especializada e independiente.",
+    "difficulty": 3
+  },
+  {
+    "titulo": "IV",
+    "question": "¿Cómo define el Estatuto la estructura del Partido?",
+    "options": [
+      "Unitaria y descentralizada, según la división político administrativa del país",
+      "Federal y autónoma por región",
+      "Centralizada en la Mesa Ejecutiva",
+      "Confederada entre comunas"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 10",
+    "explanation": "El Artículo 10 dispone que la estructura del Partido será unitaria, descentralizada y corresponderá a la división político administrativa del país.",
+    "difficulty": 2
   },
   {
     "titulo": "IV",
     "question": "¿Cuál es el organismo de base del Partido Socialista?",
-    "options": ["El Núcleo", "La Dirección Comunal", "El Comité Regional", "La brigada"],
+    "options": [
+      "El Núcleo",
+      "La Dirección Comunal",
+      "El Comité Regional",
+      "La brigada"
+    ],
     "correct": 0,
     "articleRef": "Art. 11",
-    "explanation": "El Artículo 11 define al Núcleo como el organismo de base del Partido, vinculado a la realidad social de cada sector."
+    "explanation": "El Artículo 11 define al Núcleo como el organismo de base del Partido, vinculado a la realidad social de cada sector.",
+    "difficulty": 1
   },
   {
     "titulo": "IV",
     "question": "¿Cuál es la estructura organizativa territorial básica del Partido?",
-    "options": ["La comuna", "La provincia", "La región", "El núcleo"],
+    "options": [
+      "La comuna",
+      "La provincia",
+      "La región",
+      "El núcleo"
+    ],
     "correct": 0,
     "articleRef": "Art. 12",
-    "explanation": "El Artículo 12 establece que la comuna es la estructura organizativa territorial básica, con su órgano ejecutivo en la Dirección Comunal."
+    "explanation": "El Artículo 12 establece que la comuna es la estructura organizativa territorial básica, con su órgano ejecutivo en la Dirección Comunal.",
+    "difficulty": 1
   },
   {
     "titulo": "IV",
-    "question": "¿Por cuántos miembros está integrado el Comité Regional, según el número de militantes de la región?",
-    "options": ["Veintidós, veintiséis o treinta", "Ocho, diez o doce", "Seis u ocho", "Cien"],
+    "question": "¿Cuál es la máxima autoridad política de la comuna?",
+    "options": [
+      "El Comité Comunal",
+      "La Dirección Comunal",
+      "El Núcleo",
+      "El Ampliado comunal"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 13",
+    "explanation": "El Artículo 13 define al Comité Comunal como una asamblea resolutiva que constituye la máxima autoridad política de la comuna y se reúne al menos dos veces al año.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "IV",
+    "question": "¿Qué nombre llevan las Escuelas de Formación de Líderes que implementa cada región?",
+    "options": [
+      "Carlos Lorca",
+      "Salvador Allende",
+      "Clodomiro Almeyda",
+      "Eugenio Matte"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 15",
+    "explanation": "El Artículo 15 dispone que la Secretaría de Capacitación y Formación Política implementará las Escuelas de Formación de Líderes que llevarán el nombre de 'Carlos Lorca'.",
+    "difficulty": 3
+  },
+  {
+    "titulo": "IV",
+    "question": "¿Por cuántos miembros está integrado el Comité Regional, según el número de militantes?",
+    "options": [
+      "Veintidós, veintiséis o treinta",
+      "Ocho, diez o doce",
+      "Seis u ocho",
+      "Cien"
+    ],
     "correct": 0,
     "articleRef": "Art. 16",
-    "explanation": "El Artículo 16 dispone que el Comité Regional estará integrado por veintidós, veintiséis o treinta miembros, según el número de militantes de la región."
+    "explanation": "El Artículo 16 dispone que el Comité Regional estará integrado por veintidós, veintiséis o treinta miembros, según el número de militantes de la región.",
+    "difficulty": 3
   },
   {
     "titulo": "V",
     "question": "¿Por cuántos miembros está constituido el Comité Central?",
-    "options": ["110", "26", "12", "80"],
+    "options": [
+      "110",
+      "26",
+      "12",
+      "80"
+    ],
     "correct": 0,
     "articleRef": "Art. 17",
-    "explanation": "El Artículo 17 establece que el Comité Central está constituido por ciento diez miembros: ochenta elegidos por las regiones y treinta de elección nacional."
+    "explanation": "El Artículo 17 establece que el Comité Central está constituido por ciento diez miembros: ochenta elegidos por las regiones y treinta de elección nacional.",
+    "difficulty": 1
+  },
+  {
+    "titulo": "V",
+    "question": "Del total del Comité Central, ¿cuántos miembros son de elección nacional?",
+    "options": [
+      "30",
+      "80",
+      "26",
+      "110"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 17",
+    "explanation": "El Artículo 17 distribuye los 110 miembros en ochenta de elección regional y treinta de elección nacional.",
+    "difficulty": 2
   },
   {
     "titulo": "V",
     "question": "¿Con qué frecuencia se reúne ordinariamente, en Pleno, el Comité Central?",
-    "options": ["Cada dos meses", "Cada dos semanas", "Una vez al año", "Cada tres años"],
+    "options": [
+      "Cada dos meses",
+      "Cada dos semanas",
+      "Una vez al año",
+      "Cada tres años"
+    ],
     "correct": 0,
     "articleRef": "Art. 17",
-    "explanation": "El Artículo 17 señala que el Comité Central se reúne ordinariamente en Pleno cada dos meses, y extraordinariamente cuando se requiera."
+    "explanation": "El Artículo 17 señala que el Comité Central se reúne ordinariamente en Pleno cada dos meses, y extraordinariamente cuando se requiera.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "V",
+    "question": "¿Qué órgano elige a la Mesa Ejecutiva y a la Comisión Política?",
+    "options": [
+      "El Comité Central",
+      "El Congreso General",
+      "El Tribunal Supremo",
+      "Los Comités Regionales"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 18",
+    "explanation": "El Artículo 18 letra h) establece que corresponde al Comité Central elegir la Mesa Ejecutiva y la Comisión Política del Partido.",
+    "difficulty": 2
   },
   {
     "titulo": "VI",
     "question": "¿Cuántos miembros integran la Mesa Ejecutiva del Partido?",
-    "options": ["Doce", "Veintiséis", "Nueve", "Siete"],
+    "options": [
+      "Doce",
+      "Veintiséis",
+      "Nueve",
+      "Siete"
+    ],
     "correct": 0,
     "articleRef": "Art. 19",
-    "explanation": "El Artículo 19 establece que la Mesa Ejecutiva está integrada por doce miembros, incluyendo Presidente(a), Secretario(a) General, siete Vicepresidentes, la Vicepresidencia de la Mujer y la Vicepresidencia Indígena."
+    "explanation": "El Artículo 19 establece que la Mesa Ejecutiva está integrada por doce miembros: Presidente(a), Secretario(a) General, siete Vicepresidentes, la Vicepresidencia de la Mujer y la Vicepresidencia Indígena.",
+    "difficulty": 1
   },
   {
     "titulo": "VI",
@@ -134,71 +374,316 @@
     ],
     "correct": 0,
     "articleRef": "Art. 19",
-    "explanation": "El Artículo 19 señala que el/la Presidente(a) tendrá la representación legal del Partido, pudiendo representarlo judicial y extrajudicialmente."
+    "explanation": "El Artículo 19 señala que el/la Presidente(a) tendrá la representación legal del Partido, pudiendo representarlo judicial y extrajudicialmente.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "VI",
+    "question": "Si el/la Presidente(a) se ausenta, ¿quién lo/la subroga en primer lugar?",
+    "options": [
+      "El/la Secretario(a) General",
+      "La/el Vicepresidenta(e) de la Mujer y Equidad de Género",
+      "El miembro de más edad",
+      "El/la Presidente(a) de la Juventud Socialista"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 19",
+    "explanation": "El Artículo 19 establece que el/la Presidente(a) será subrogado(a) por el/la Secretario(a) General y, en ausencia de este(a), por la/el Vicepresidenta(e) de la Mujer y Equidad de Género.",
+    "difficulty": 3
+  },
+  {
+    "titulo": "VI",
+    "question": "¿Qué porcentaje mínimo de su presupuesto anual destina el Partido al Programa Nacional de Formación y Capacitación Política?",
+    "options": [
+      "15%",
+      "10%",
+      "20%",
+      "5%"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 19",
+    "explanation": "El Artículo 19 dispone destinar al menos un 15% del presupuesto anual al Programa Nacional de Formación y Capacitación Política.",
+    "difficulty": 3
+  },
+  {
+    "titulo": "VI",
+    "question": "En caso de empate de votos en la Mesa Ejecutiva o en una Dirección, ¿quién dirime?",
+    "options": [
+      "El/la Presidente/a de la instancia",
+      "El Tribunal Supremo",
+      "El/la Secretario/a General",
+      "Se repite la votación"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 19 bis",
+    "explanation": "El Artículo 19 bis establece que, ante un empate en la Dirección Comunal, Provincial, Regional o en la Mesa Ejecutiva, dirime el/la Presidente/a de dichas instancias.",
+    "difficulty": 3
   },
   {
     "titulo": "VII",
     "question": "¿Cuántos miembros tiene la Comisión Política?",
-    "options": ["26", "12", "110", "15"],
+    "options": [
+      "26",
+      "12",
+      "110",
+      "15"
+    ],
     "correct": 0,
     "articleRef": "Art. 20",
-    "explanation": "El Artículo 20 dispone que la Comisión Política está formada por 26 miembros, incluidos los integrantes de la Mesa Ejecutiva."
+    "explanation": "El Artículo 20 dispone que la Comisión Política está formada por 26 miembros, incluidos los integrantes de la Mesa Ejecutiva.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "VII",
+    "question": "¿Con qué frecuencia se reúne ordinariamente la Comisión Política?",
+    "options": [
+      "Cada dos semanas",
+      "Cada dos meses",
+      "Una vez al mes",
+      "Cada tres meses"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 20",
+    "explanation": "El Artículo 20 señala que la Comisión Política se reúne ordinariamente cada dos semanas y extraordinariamente cuando las circunstancias lo ameriten.",
+    "difficulty": 3
+  },
+  {
+    "titulo": "VII",
+    "question": "¿Qué dos Secretarías Nacionales deben implementarse obligatoriamente según el Artículo 21?",
+    "options": [
+      "La del Adulto Mayor y la Electoral",
+      "La de Comunicaciones y la Sindical",
+      "La de la Mujer y la Indígena",
+      "La de Finanzas y la de Organización"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 21",
+    "explanation": "El Artículo 21 ordena implementar, en todo caso, una Secretaría Nacional del Adulto Mayor y una Secretaría Nacional Electoral.",
+    "difficulty": 3
+  },
+  {
+    "titulo": "VII",
+    "question": "Para ser Encargado(a) Nacional del Departamento Nacional Sindical (DENAS), ¿qué condición se exige?",
+    "options": [
+      "Tener la calidad de dirigente sindical",
+      "Ser miembro de la Mesa Ejecutiva",
+      "Tener 10 años de militancia",
+      "Ser parlamentario socialista"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 24",
+    "explanation": "El Artículo 24 dispone que el/la Encargado(a) Nacional del DENAS se elige en una Conferencia Nacional Sindical y para postular debe tener necesariamente la calidad de dirigente sindical.",
+    "difficulty": 3
   },
   {
     "titulo": "VII",
     "question": "Para presentar una \"iniciativa de ley\" interna, ¿cuántas suscripciones de afiliados y/o adherentes se requieren como mínimo?",
-    "options": ["Cien", "Cincuenta", "Quinientas", "Mil"],
+    "options": [
+      "Cien",
+      "Cincuenta",
+      "Quinientas",
+      "Mil"
+    ],
     "correct": 0,
     "articleRef": "Art. 25 bis",
-    "explanation": "El Artículo 25 bis exige, al menos, cien suscripciones de afiliados y/o adherentes, o que la iniciativa sea suscrita por al menos el 5% de los Presidentes de las Direcciones Comunales."
+    "explanation": "El Artículo 25 bis exige al menos cien suscripciones de afiliados y/o adherentes, o que la iniciativa sea suscrita por al menos el 5% de los Presidentes de las Direcciones Comunales.",
+    "difficulty": 3
   },
   {
     "titulo": "VIII",
     "question": "¿Qué organismo define la línea política y el Programa de Acción del Partido?",
-    "options": ["El Congreso General", "El Comité Central", "La Mesa Ejecutiva", "La Comisión Política"],
+    "options": [
+      "El Congreso General",
+      "El Comité Central",
+      "La Mesa Ejecutiva",
+      "La Comisión Política"
+    ],
     "correct": 0,
     "articleRef": "Art. 26",
-    "explanation": "El Artículo 26 establece que el Congreso General es el organismo que define la línea política y el Programa de Acción del Partido."
+    "explanation": "El Artículo 26 establece que el Congreso General es el organismo que define la línea política y el Programa de Acción del Partido.",
+    "difficulty": 1
   },
   {
     "titulo": "VIII",
     "question": "¿Con qué periodicidad se realiza el Congreso General Ordinario?",
-    "options": ["Cada tres años", "Cada dos años", "Cada cuatro años", "Cada año"],
+    "options": [
+      "Cada tres años",
+      "Cada dos años",
+      "Cada cuatro años",
+      "Cada año"
+    ],
     "correct": 0,
     "articleRef": "Art. 27",
-    "explanation": "El Artículo 27 indica que el Congreso General Ordinario es el organismo político superior del Partido, se realiza cada tres años y se convoca con cuatro meses de anticipación."
+    "explanation": "El Artículo 27 indica que el Congreso General Ordinario se realiza cada tres años y se convoca con cuatro meses de anticipación.",
+    "difficulty": 1
   },
   {
     "titulo": "VIII",
-    "question": "¿Por cuántos miembros está compuesta la Comisión Nacional Organizadora del Congreso?",
-    "options": ["Quince", "Nueve", "Veintidós", "Cinco"],
+    "question": "¿Qué quórum del Comité Central se requiere para acordar un Congreso General Extraordinario?",
+    "options": [
+      "Dos tercios de los miembros en ejercicio",
+      "La mitad más uno",
+      "Tres quintos",
+      "Mayoría simple"
+    ],
     "correct": 0,
-    "articleRef": "Art. 32",
-    "explanation": "El Artículo 32 dispone que el Pleno del Comité Central designará una Comisión Nacional Organizadora compuesta de quince miembros."
+    "articleRef": "Art. 27",
+    "explanation": "El Artículo 27 dispone que el Congreso General Extraordinario se reúne cuando lo acuerden los dos tercios de los miembros en ejercicio del Comité Central.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "VIII",
+    "question": "¿Cuántos miembros de la Juventud Socialista integran el Congreso General?",
+    "options": [
+      "Diez",
+      "Cinco",
+      "Quince",
+      "Veinte"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 28",
+    "explanation": "El Artículo 28 letra c) incluye diez miembros de la Juventud Socialista, designados por su Comité Central, entre quienes constituyen el Congreso General.",
+    "difficulty": 3
+  },
+  {
+    "titulo": "VIII",
+    "question": "¿Qué órgano elige a los miembros del Tribunal Supremo, en votación secreta?",
+    "options": [
+      "El Congreso General",
+      "El Comité Central",
+      "La Mesa Ejecutiva",
+      "Los Tribunales Regionales"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 29",
+    "explanation": "El Artículo 29 letra b) atribuye al Congreso General elegir a los miembros del Tribunal Supremo, en votación secreta.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "VIII",
+    "question": "¿Cómo se adoptan los acuerdos y resoluciones del Congreso General?",
+    "options": [
+      "Por mayoría simple de los delegados presentes",
+      "Por dos tercios de los delegados",
+      "Por unanimidad",
+      "Por tres quintos de los delegados"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 31",
+    "explanation": "El Artículo 31 dispone que los acuerdos y resoluciones del Congreso General se tomarán por la mayoría simple de los delegados y delegadas presentes en la sesión plenaria.",
+    "difficulty": 2
   },
   {
     "titulo": "IX",
     "question": "¿Qué carácter tiene el \"Ampliado\" (asamblea general de un Comunal, Provincial o Regional)?",
-    "options": ["Informativo", "Resolutivo", "Jurisdiccional", "Electoral"],
+    "options": [
+      "Informativo",
+      "Resolutivo",
+      "Jurisdiccional",
+      "Electoral"
+    ],
     "correct": 0,
     "articleRef": "Art. 34",
-    "explanation": "El Artículo 34 señala que el Ampliado tiene carácter informativo y sus acuerdos se consideran propuestas a los organismos intermedios colegiados correspondientes."
+    "explanation": "El Artículo 34 señala que el Ampliado tiene carácter informativo y sus acuerdos se consideran propuestas a los organismos intermedios colegiados correspondientes.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "IX",
+    "question": "¿Qué valor tienen los acuerdos de un Ampliado?",
+    "options": [
+      "Son propuestas a los organismos intermedios colegiados",
+      "Son obligatorios para la Mesa Ejecutiva",
+      "Tienen rango de resolución del Congreso",
+      "Modifican el Estatuto"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 34",
+    "explanation": "El Artículo 34 precisa que los acuerdos del Ampliado se consideran propuestas a los organismos intermedios colegiados correspondientes.",
+    "difficulty": 3
   },
   {
     "titulo": "X",
     "question": "¿Qué porcentaje de las cotizaciones de los militantes y adherentes menores de 30 años se destina a la Juventud Socialista?",
-    "options": ["El 100%", "El 50%", "El 20%", "El 10%"],
+    "options": [
+      "El 100%",
+      "El 50%",
+      "El 20%",
+      "El 10%"
+    ],
     "correct": 0,
     "articleRef": "Art. 35",
-    "explanation": "El Artículo 35 establece que el 100% de las cotizaciones de los militantes y adherentes menores de 30 años se destinará al financiamiento de la Juventud Socialista."
+    "explanation": "El Artículo 35 establece que el 100% de las cotizaciones de los militantes y adherentes menores de 30 años se destinará al financiamiento de la Juventud Socialista.",
+    "difficulty": 1
+  },
+  {
+    "titulo": "X",
+    "question": "¿Qué condición orgánica mantiene la Juventud Socialista?",
+    "options": [
+      "Su autonomía orgánica",
+      "Dependencia de la Mesa Ejecutiva",
+      "Subordinación al Tribunal Supremo",
+      "Fusión con la Vicepresidencia de la Mujer"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 35",
+    "explanation": "El Artículo 35 dispone que la Juventud Socialista mantendrá su autonomía orgánica y podrá definir su programa en el marco de la línea política del Partido.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "X",
+    "question": "¿Cuántos miembros del Comité Central de la Juventud participan con derecho a voz en el Comité Central del Partido?",
+    "options": [
+      "Cinco, incluido su Presidente(a)",
+      "Diez",
+      "Tres",
+      "Uno"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 35",
+    "explanation": "El Artículo 35 letra b) establece que cinco miembros de su Comité Central, incluido su Presidente(a), participarán con derecho a voz en el Comité Central del Partido.",
+    "difficulty": 3
   },
   {
     "titulo": "XI",
     "question": "En los organismos colegiados y ejecutivos del Partido, ¿qué proporción máxima puede tener uno de los dos sexos?",
-    "options": ["El 50%", "El 60%", "El 70%", "Dos tercios"],
+    "options": [
+      "El 50%",
+      "El 60%",
+      "El 70%",
+      "Dos tercios"
+    ],
     "correct": 0,
     "articleRef": "Art. 36",
-    "explanation": "El Artículo 36 dispone que ninguno de los dos sexos podrá superar el 50% de la composición final del colegiado correspondiente (tolerando una diferencia de a lo más uno si el número es impar)."
+    "explanation": "El Artículo 36 dispone que ninguno de los dos sexos podrá superar el 50% de la composición final del colegiado (tolerando una diferencia de a lo más uno si el número es impar).",
+    "difficulty": 1
+  },
+  {
+    "titulo": "XI",
+    "question": "¿Con qué proporción de cada género debe inscribirse cada lista de candidaturas?",
+    "options": [
+      "50% de cada género",
+      "60% de un género",
+      "Un tercio de cada género",
+      "No hay exigencia"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 36",
+    "explanation": "El Artículo 36 letra c) establece que, para asegurar el funcionamiento de la norma, cada lista deberá inscribirse con un 50% de cada género.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "XI",
+    "question": "¿Qué porcentaje de financiamiento fiscal para fomento de la participación de la mujer administra la Vicepresidencia de la Mujer?",
+    "options": [
+      "El 10%",
+      "El 50%",
+      "El 100%",
+      "El 20%"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 36",
+    "explanation": "El Artículo 36 indica que la Vicepresidencia de la Mujer administra el 10% del financiamiento fiscal destinado al fomento de la participación de la mujer en la política, además del incentivo por cada candidata elegida.",
+    "difficulty": 3
   },
   {
     "titulo": "XII",
@@ -211,7 +696,22 @@
     ],
     "correct": 0,
     "articleRef": "Art. 37",
-    "explanation": "El Artículo 37 establece que se elegirá de manera directa, por los afiliados y adherentes indígenas, a nivel nacional, regional, provincial y comunal."
+    "explanation": "El Artículo 37 establece que se elige de manera directa, por los afiliados y adherentes indígenas.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "XII",
+    "question": "¿En qué niveles existe la Vicepresidencia para Asuntos Indígenas?",
+    "options": [
+      "Nacional, regional, provincial y comunal",
+      "Solo a nivel nacional",
+      "Solo nacional y regional",
+      "Solo a nivel comunal"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 37",
+    "explanation": "El Artículo 37 dispone que se elige a nivel nacional, regional, provincial y comunal, formando parte con plenos derechos del órgano ejecutivo correspondiente.",
+    "difficulty": 3
   },
   {
     "titulo": "XIII",
@@ -224,39 +724,134 @@
     ],
     "correct": 0,
     "articleRef": "Art. 38",
-    "explanation": "El Artículo 38 define como mandatarios a los militantes que desempeñan cargos públicos de elección popular (Presidente, senadores, diputados, alcaldes, etc.) y a ciertos dirigentes sociales que representan al Partido."
+    "explanation": "El Artículo 38 define como mandatarios a los militantes que desempeñan cargos públicos de elección popular (Presidente, senadores, diputados, alcaldes, etc.) y a ciertos dirigentes sociales que representan al Partido.",
+    "difficulty": 1
+  },
+  {
+    "titulo": "XIII",
+    "question": "¿Qué órgano elige a los candidatos y candidatas a cargos de representación popular?",
+    "options": [
+      "El Comité Central",
+      "El Congreso General",
+      "La Comisión Política",
+      "El Tribunal Supremo"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 38",
+    "explanation": "El Artículo 38 establece que los candidatos a cargos de representación popular son elegidos por el Comité Central; los de concejales, alcaldes y consejeros regionales se proponen por los respectivos Comités Regionales.",
+    "difficulty": 2
   },
   {
     "titulo": "XIV",
     "question": "¿Con qué frecuencia se eligen los órganos colectivos de dirección del Partido?",
-    "options": ["Cada veinticuatro meses", "Cada doce meses", "Cada tres años", "Cada cuatro años"],
+    "options": [
+      "Cada veinticuatro meses",
+      "Cada doce meses",
+      "Cada tres años",
+      "Cada cuatro años"
+    ],
     "correct": 0,
     "articleRef": "Art. 39",
-    "explanation": "El Artículo 39 establece elecciones simultáneas cada veinticuatro meses, entre el último domingo de abril y el último domingo de mayo."
+    "explanation": "El Artículo 39 establece elecciones simultáneas cada veinticuatro meses, entre el último domingo de abril y el último domingo de mayo.",
+    "difficulty": 1
   },
   {
     "titulo": "XIV",
-    "question": "¿Qué antigüedad en el Partido se exige para optar al Comité Central?",
-    "options": ["Cinco años", "Tres años", "Un año", "Diez años"],
+    "question": "¿En qué período del año se realizan las elecciones internas?",
+    "options": [
+      "Entre el último domingo de abril y el último domingo de mayo",
+      "Durante todo el mes de marzo",
+      "Entre julio y agosto",
+      "En la primera semana de enero"
+    ],
     "correct": 0,
-    "articleRef": "Art. 41",
-    "explanation": "El Artículo 41 exige cinco años de antigüedad para optar al Comité Central; tres para el Comité Regional y la Dirección Provincial; y uno para la Dirección Comunal."
-  },
-  {
-    "titulo": "XIV",
-    "question": "¿Por cuántos períodos consecutivos puede un militante servir en el mismo cargo de dirección?",
-    "options": ["Dos", "Tres", "Sin límite", "Uno"],
-    "correct": 0,
-    "articleRef": "Art. 41",
-    "explanation": "El Artículo 41 establece que no se podrá ser elegido ni servir en el mismo cargo por más de dos períodos consecutivos."
+    "articleRef": "Art. 39",
+    "explanation": "El Artículo 39 fija las elecciones simultáneas entre el último domingo de abril y el último domingo de mayo, cada veinticuatro meses.",
+    "difficulty": 3
   },
   {
     "titulo": "XIV",
     "question": "La acción positiva de jóvenes corresponde a qué porcentaje de cada órgano de dirección del Partido?",
-    "options": ["El 20%", "El 10%", "El 50%", "El 30%"],
+    "options": [
+      "El 20%",
+      "El 10%",
+      "El 50%",
+      "El 30%"
+    ],
     "correct": 0,
     "articleRef": "Art. 40",
-    "explanation": "El Artículo 40 fija la acción positiva de jóvenes en el veinte por ciento de cada órgano de dirección, beneficiando a quienes a la fecha de la elección no hayan cumplido 30 años."
+    "explanation": "El Artículo 40 fija la acción positiva de jóvenes en el veinte por ciento de cada órgano de dirección, beneficiando a quienes a la fecha de la elección no hayan cumplido 30 años.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "XIV",
+    "question": "¿Qué antigüedad en el Partido se exige para optar al Comité Central?",
+    "options": [
+      "Cinco años",
+      "Tres años",
+      "Un año",
+      "Diez años"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 41",
+    "explanation": "El Artículo 41 exige cinco años de antigüedad para optar al Comité Central; tres para el Comité Regional y la Dirección Provincial; y uno para la Dirección Comunal.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "XIV",
+    "question": "¿Qué antigüedad se exige para optar a la Dirección Comunal?",
+    "options": [
+      "Un año",
+      "Tres años",
+      "Cinco años",
+      "Diez años"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 41",
+    "explanation": "El Artículo 41 establece una antigüedad de un año para optar a la Dirección Comunal.",
+    "difficulty": 3
+  },
+  {
+    "titulo": "XIV",
+    "question": "¿Por cuántos períodos consecutivos puede un militante servir en el mismo cargo de dirección?",
+    "options": [
+      "Dos",
+      "Tres",
+      "Sin límite",
+      "Uno"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 41",
+    "explanation": "El Artículo 41 establece que no se podrá ser elegido ni servir en el mismo cargo por más de dos períodos consecutivos.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "XIV",
+    "question": "Un dirigente que renuncia injustificadamente o abandona su cargo, ¿por cuánto tiempo no puede optar a otro cargo de elección?",
+    "options": [
+      "Tres años",
+      "Un año",
+      "Cinco años",
+      "Seis meses"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 45",
+    "explanation": "El Artículo 45 dispone que no podrán optar al mismo o a cualquier otro cargo de elección durante los tres años siguientes.",
+    "difficulty": 3
+  },
+  {
+    "titulo": "XIV",
+    "question": "Según el Artículo 47, ¿qué características tienen las corrientes de opinión dentro del Partido?",
+    "options": [
+      "Existencia transitoria y sin disciplina interna",
+      "Existencia permanente con disciplina propia",
+      "Reconocimiento legal ante el Servicio Electoral",
+      "Representación garantizada en la Mesa Ejecutiva"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 47",
+    "explanation": "El Artículo 47 permite que existan corrientes de opinión, con existencia transitoria y sin disciplina interna.",
+    "difficulty": 3
   },
   {
     "titulo": "XV",
@@ -269,23 +864,78 @@
     ],
     "correct": 0,
     "articleRef": "Art. 51",
-    "explanation": "El Artículo 51 establece que el Tribunal Supremo está compuesto por nueve miembros titulares y tres miembros suplentes."
+    "explanation": "El Artículo 51 establece que el Tribunal Supremo está compuesto por nueve miembros titulares y tres miembros suplentes.",
+    "difficulty": 1
   },
   {
     "titulo": "XV",
     "question": "¿Qué antigüedad de militancia continua se requiere para ser miembro del Tribunal Supremo?",
-    "options": ["No inferior a 10 años", "No inferior a 7 años", "No inferior a 5 años", "No inferior a 3 años"],
+    "options": [
+      "No inferior a 10 años",
+      "No inferior a 7 años",
+      "No inferior a 5 años",
+      "No inferior a 3 años"
+    ],
     "correct": 0,
     "articleRef": "Art. 51",
-    "explanation": "El Artículo 51 exige una militancia continua no inferior a 10 años para integrar el Tribunal Supremo (para los Tribunales Regionales, el Artículo 60 exige 7 años)."
+    "explanation": "El Artículo 51 exige una militancia continua no inferior a 10 años para integrar el Tribunal Supremo.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "XV",
+    "question": "El cargo de miembro del Tribunal Supremo, ¿con qué es incompatible?",
+    "options": [
+      "Con cualquier otro cargo en el Partido",
+      "Solo con cargos de la Mesa Ejecutiva",
+      "Solo con cargos parlamentarios",
+      "Con ningún otro cargo"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 52",
+    "explanation": "El Artículo 52 establece que el cargo de miembro del Tribunal Supremo será incompatible con cualquier otro cargo en el Partido.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "XV",
+    "question": "Para postular a una elección interna, ¿con qué antelación debe un miembro desvincularse del Tribunal Supremo?",
+    "options": [
+      "Seis meses",
+      "Tres meses",
+      "Un año",
+      "Treinta días"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 53",
+    "explanation": "El Artículo 53 exige desvincularse del Tribunal con una antelación mínima de seis meses a la fecha de la elección respectiva.",
+    "difficulty": 3
+  },
+  {
+    "titulo": "XV",
+    "question": "¿Qué órgano tiene la atribución de interpretar los Estatutos, reglamentos y demás normas internas?",
+    "options": [
+      "El Tribunal Supremo",
+      "El Comité Central",
+      "La Mesa Ejecutiva",
+      "El Congreso General"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 54",
+    "explanation": "El Artículo 54 letra a) atribuye al Tribunal Supremo interpretar los Estatutos, reglamentos y demás normas internas.",
+    "difficulty": 2
   },
   {
     "titulo": "XV",
     "question": "¿Qué quórum del Tribunal Supremo se requiere para aplicar la expulsión de un afiliado o adherente?",
-    "options": ["Dos tercios de sus integrantes en ejercicio", "Tres quintos", "Mayoría simple", "La mitad más uno"],
+    "options": [
+      "Dos tercios de sus integrantes en ejercicio",
+      "Tres quintos",
+      "Mayoría simple",
+      "La mitad más uno"
+    ],
     "correct": 0,
     "articleRef": "Art. 55",
-    "explanation": "El Artículo 55 exige el voto de dos tercios para la expulsión (n.º 5). La suspensión o destitución del cargo y la suspensión de derechos (n.º 3 y 4) requieren tres quintos."
+    "explanation": "El Artículo 55 exige el voto de dos tercios para la expulsión (n.º 5). La suspensión o destitución del cargo y la suspensión de derechos (n.º 3 y 4) requieren tres quintos.",
+    "difficulty": 2
   },
   {
     "titulo": "XV",
@@ -298,6 +948,21 @@
     ],
     "correct": 0,
     "articleRef": "Art. 55",
-    "explanation": "El Artículo 55 contempla: amonestación, censura por escrito, suspensión o destitución del cargo, suspensión de derechos y expulsión. No incluye multas económicas."
+    "explanation": "El Artículo 55 contempla amonestación, censura por escrito, suspensión o destitución del cargo, suspensión de derechos y expulsión. No incluye multas económicas.",
+    "difficulty": 2
+  },
+  {
+    "titulo": "XV",
+    "question": "¿Cómo están compuestos los Tribunales Regionales?",
+    "options": [
+      "Siete miembros: cinco titulares y dos suplentes",
+      "Nueve titulares y tres suplentes",
+      "Cinco miembros titulares",
+      "Doce miembros"
+    ],
+    "correct": 0,
+    "articleRef": "Art. 60",
+    "explanation": "El Artículo 60 establece que los Tribunales Regionales se componen de siete miembros, cinco titulares y dos suplentes, elegidos por el Congreso Regional, con militancia continua no inferior a 7 años.",
+    "difficulty": 3
   }
 ]

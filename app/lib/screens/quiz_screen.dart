@@ -7,22 +7,59 @@ import '../theme.dart';
 class QuizScreen extends StatefulWidget {
   final Repository repo;
   final List<QuizQuestion> questions;
-  final String scopeKey; // "ALL" or a Título roman numeral
+  final String scopeKey; // "ALL" or a Título roman numeral (incl. tier)
   final String scopeLabel;
+  final int sessionSize; // max questions per round
+  final bool reviewMode; // "repasar los fallados": clears missed on correct
   const QuizScreen({
     super.key,
     required this.repo,
     required this.questions,
     required this.scopeKey,
     required this.scopeLabel,
+    this.sessionSize = 10,
+    this.reviewMode = false,
   });
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
 }
 
+/// A question with its options shuffled for presentation, so the correct answer
+/// is not always in the same position. [correct] is the index into the shuffled
+/// [options].
+class _PreparedQuestion {
+  final String id;
+  final String question;
+  final List<String> options;
+  final int correct;
+  final String articleRef;
+  final String explanation;
+  _PreparedQuestion({
+    required this.id,
+    required this.question,
+    required this.options,
+    required this.correct,
+    required this.articleRef,
+    required this.explanation,
+  });
+
+  factory _PreparedQuestion.from(QuizQuestion q, Random rng) {
+    final order = List<int>.generate(q.options.length, (i) => i)..shuffle(rng);
+    return _PreparedQuestion(
+      id: q.id,
+      question: q.question,
+      options: [for (final i in order) q.options[i]],
+      correct: order.indexOf(q.correct),
+      articleRef: q.articleRef,
+      explanation: q.explanation,
+    );
+  }
+}
+
 class _QuizScreenState extends State<QuizScreen> {
-  late final List<QuizQuestion> _questions;
+  final Random _rng = Random();
+  late List<_PreparedQuestion> _questions;
   int _index = 0;
   int? _selected;
   int _correctCount = 0;
@@ -32,17 +69,28 @@ class _QuizScreenState extends State<QuizScreen> {
   @override
   void initState() {
     super.initState();
-    _questions = [...widget.questions]..shuffle(Random());
+    _questions = _prepare();
   }
 
-  QuizQuestion get _q => _questions[_index];
+  List<_PreparedQuestion> _prepare() {
+    final shuffled = [...widget.questions]..shuffle(_rng);
+    final take = shuffled.take(widget.sessionSize).toList();
+    return [for (final q in take) _PreparedQuestion.from(q, _rng)];
+  }
+
+  _PreparedQuestion get _q => _questions[_index];
   bool get _answered => _selected != null;
 
   void _select(int i) {
     if (_answered) return;
     setState(() {
       _selected = i;
-      if (i == _q.correct) _correctCount++;
+      if (i == _q.correct) {
+        _correctCount++;
+        if (widget.reviewMode) widget.repo.removeMissed(_q.id);
+      } else {
+        widget.repo.addMissed(_q.id);
+      }
     });
   }
 
@@ -54,6 +102,12 @@ class _QuizScreenState extends State<QuizScreen> {
       });
     } else {
       final pct = ((_correctCount / _questions.length) * 100).round();
+      await widget.repo.addXp(_correctCount * 10);
+      final streak = await widget.repo.registerActivityToday(DateTime.now());
+      await widget.repo.unlockBadge('first_quiz');
+      if (pct == 100) await widget.repo.unlockBadge('perfect');
+      if (streak >= 3) await widget.repo.unlockBadge('streak3');
+      if (streak >= 7) await widget.repo.unlockBadge('streak7');
       final best = await widget.repo.saveScore(widget.scopeKey, pct);
       if (mounted) {
         setState(() {
@@ -316,7 +370,7 @@ class _QuizScreenState extends State<QuizScreen> {
               _selected = null;
               _correctCount = 0;
               _finished = false;
-              _questions.shuffle(Random());
+              _questions = _prepare();
             }),
             child: const Text('Reintentar'),
           ),
