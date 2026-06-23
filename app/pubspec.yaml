@@ -15,8 +15,23 @@ dependencies:
 
 dev_dependencies:
   flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.1
   flutter_test:
     sdk: flutter
+
+# Launcher icons generated from the official PS emblem. Regenerate after editing
+# the source images with:  dart run flutter_launcher_icons
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/img/ps_emblem.png"
+  # iOS forbids alpha in app icons; flatten the roundel onto the paper color.
+  remove_alpha_ios: true
+  background_color_ios: "#F7F3EE"
+  min_sdk_android: 21
+  # Android adaptive icon: padded foreground so the ring is not clipped by the mask.
+  adaptive_icon_background: "#F7F3EE"
+  adaptive_icon_foreground: "assets/img/ps_emblem_padded.png"
 
 flutter:
   uses-material-design: true
