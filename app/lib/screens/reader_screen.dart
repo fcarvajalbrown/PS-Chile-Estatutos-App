@@ -193,7 +193,12 @@ class _TituloScreenState extends State<TituloScreen> {
                 onExpansionChanged: (open) {
                   if (open && !isRead) {
                     widget.repo.markRead(id);
-                    setState(() => _read = {..._read, id});
+                    widget.repo.registerActivityToday(DateTime.now());
+                    final newRead = {..._read, id};
+                    final allRead = widget.titulo.articulos.every(
+                        (x) => newRead.contains(articleId(widget.titulo, x)));
+                    if (allRead) widget.repo.unlockBadge('reader_titulo');
+                    setState(() => _read = newRead);
                   }
                 },
                 children: [

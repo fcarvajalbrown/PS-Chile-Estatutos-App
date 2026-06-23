@@ -102,6 +102,12 @@ class _QuizScreenState extends State<QuizScreen> {
       });
     } else {
       final pct = ((_correctCount / _questions.length) * 100).round();
+      await widget.repo.addXp(_correctCount * 10);
+      final streak = await widget.repo.registerActivityToday(DateTime.now());
+      await widget.repo.unlockBadge('first_quiz');
+      if (pct == 100) await widget.repo.unlockBadge('perfect');
+      if (streak >= 3) await widget.repo.unlockBadge('streak3');
+      if (streak >= 7) await widget.repo.unlockBadge('streak7');
       final best = await widget.repo.saveScore(widget.scopeKey, pct);
       if (mounted) {
         setState(() {

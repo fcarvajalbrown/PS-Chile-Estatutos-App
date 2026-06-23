@@ -124,6 +124,59 @@ class Repository {
     }
   }
 
+  // ---- Gamification (streak / XP / badges) ----
+
+  Future<int> getXp() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getInt('gam_xp') ?? 0;
+  }
+
+  Future<int> addXp(int n) async {
+    final prefs = await SharedPreferences.getInstance();
+    final xp = (prefs.getInt('gam_xp') ?? 0) + n;
+    await prefs.setInt('gam_xp', xp);
+    return xp;
+  }
+
+  Future<int> getStreak() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getInt('gam_streak') ?? 0;
+  }
+
+  String _dayKey(DateTime d) =>
+      '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
+
+  /// Records activity for [today] and returns the resulting daily streak:
+  /// unchanged if already counted today, +1 if yesterday was the last day,
+  /// otherwise reset to 1.
+  Future<int> registerActivityToday(DateTime today) async {
+    final prefs = await SharedPreferences.getInstance();
+    final last = prefs.getString('gam_lastday');
+    final todayKey = _dayKey(today);
+    if (last == todayKey) return prefs.getInt('gam_streak') ?? 1;
+    final yesterdayKey = _dayKey(today.subtract(const Duration(days: 1)));
+    int streak = prefs.getInt('gam_streak') ?? 0;
+    streak = (last == yesterdayKey) ? streak + 1 : 1;
+    await prefs.setInt('gam_streak', streak);
+    await prefs.setString('gam_lastday', todayKey);
+    return streak;
+  }
+
+  Future<Set<String>> badges() async {
+    final prefs = await SharedPreferences.getInstance();
+    return (prefs.getStringList('gam_badges') ?? const <String>[]).toSet();
+  }
+
+  /// Unlocks a badge; returns true if it was newly unlocked.
+  Future<bool> unlockBadge(String id) async {
+    final prefs = await SharedPreferences.getInstance();
+    final set = (prefs.getStringList('gam_badges') ?? <String>[]).toSet();
+    if (set.contains(id)) return false;
+    set.add(id);
+    await prefs.setStringList('gam_badges', set.toList());
+    return true;
+  }
+
   // ---- Progress: read articles ----
 
   static const _readKey = 'read_articles';
